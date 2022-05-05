@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Plantilla/Plantilla :: head">
+
+</head>
+<body>
+<form th:action="@{/guardaroficina}" method="post" th:object="${oficina}">
+  <div class="mb-3">
+    <label for="Codigo" class="form-label">Codigo</label>
+    <input type="text" class="form-control" id="Codigo" th:field="*{officeCode}">
+  </div>
+  <div class="mb-3">
+    <label for="City" class="form-label">City</label>
+    <input type="text" class="form-control" id="City" th:field="*{city}">
+  </div>
+  <div class="mb-3">
+    <label for="Phone" class="form-label">Phone</label>
+    <input type="text" class="form-control" id="Phone" th:field="*{phone}">
+  </div>
+  <div class="mb-3">
+    <label for="Addressline1" class="form-label">addressline1</label>
+    <input type="text" class="form-control" id="addressline1" th:field="*{addressLine1}">
+  </div>
+  <div class="mb-3">
+    <label for="Addressline2" class="form-label">addressline2</label>
+    <input type="text" class="form-control" id="addressline2" th:field="*{addressLine2}">
+  </div>
+    <div class="mb-3">
+    <label for="State" class="form-label">State</label>
+    <input type="text" class="form-control" id="State" th:field="*{state}">
+  </div>
+  <div class="mb-3">
+    <label for="Country" class="form-label">Country</label>
+    <input type="text" class="form-control" id="Country" th:field="*{country}">
+  </div>
+  <div class="mb-3">
+    <label for="PostalCode" class="form-label">PostalCode</label>
+    <input type="text" class="form-control" id="PostalCode" th:field="*{postalCode}">
+  </div>
+  <div class="mb-3">
+    <label for="Territory" class="form-label">Territory</label>
+    <input type="text" class="form-control" id="Territory" th:field="*{territory}">
+  </div>
+ 
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</body>
+</html>

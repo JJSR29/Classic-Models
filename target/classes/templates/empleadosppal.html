@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Plantilla/Plantilla :: head">
+
+</head>
+<body>
+<a class="btn btn-secondary" th:href="@{/crearempleado}">Crear Empleado</a>
+	<table class = "table table-striped">
+		<thead>
+		<tr>
+			<th>Codigo Empleado</th>
+			<th>Apellidos</th>
+			<th>Nombres</th>
+			<th>Ciudad</th>
+			<th>Estado</th>
+			<th>Pais</th>
+			<th colspan="2">Acciones</th>
+		</tr>
+		</thead>
+		<tr th:each="e:${lstEmpleados}">
+			<td th:text="${e.employeeNumber}"></td>
+			<td th:text="${e.lastName}"></td>
+			<td th:text="${e.firstName}"></td>
+			<td th:text="${e.oficina.city}"></td>
+			<td th:text="${e.oficina.state}"></td>
+			<td th:text="${e.oficina.country}"></td>
+			
+			<td > <a class="btn btn-secondary btn-xs" th:href="@{/EditarEmpleado/}+${e.employeeNumber}">Editar</a></td>
+			<td > <a class="btn btn-danger btn-xs" th:href="@{/EliminarEmpleado/}+${e.employeeNumber}">Eliminar</a></td>
+		</tr>
+	</table>
+</body>
+</html>

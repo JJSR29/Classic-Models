@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Plantilla/Plantilla :: head">
+
+</head>
+<body>
+	<form th:action="@{/guardarempleado}" method="post"
+		th:object="${empleado}">
+		<div class="mb-3">
+			<label for="Codigo" class="form-label">Codigo</label> <input
+				type="text" class="form-control" id="Codigo"
+				th:field="*{employeeNumber}">
+		</div>
+		<div class="mb-3">
+			<label for="LastName" class="form-label">Apellido</label> <input
+				type="text" class="form-control" id="Apellido"
+				th:field="*{lastName}">
+		</div>
+		<div class="mb-3">
+			<label for="Nombre" class="form-label">Nombre</label> <input
+				type="text" class="form-control" id="Nombre" th:field="*{firstName}">
+		</div>
+		<div class="mb-3">
+			<label for="extension" class="form-label">extension</label> <input
+				type="text" class="form-control" id="extension"
+				th:field="*{extension}">
+		</div>
+		<div class="mb-3">
+			<label for="email" class="form-label">email</label> <input
+				type="text" class="form-control" id="email" th:field="*{email}">
+		</div>
+		<div class="mb-3">
+		<label for="OfFiceCode" class="form-label">Oficina</label>
+			<select class="form-select" aria-label="Default select example" th:field="*{oficina.officeCode}">
+				<option value="0" text="Seleccione Oficina" selected></option>
+				<option th:each="o:${Oficinas}" th:value="${o.officeCode}" th:text="${o.officeCode}+'-'+${o.city}+'-'+${o.country}"></option>
+			</select>
+		</div>
+		<div class="mb-3">
+		<label for="Jefe" class="form-label">jefe</label>
+			<select class="form-select" aria-label="Default select example" th:field="*{reportsTo}">
+				<option value="0" text="A quien reporta" selected></option>
+				<option th:each="o:${lstEmpleados}" th:value="${o.employeeNumber}" th:text="${o.firstName}+' '+${o.lastName}"></option>
+			</select>
+		</div>
+		<div class="mb-3">
+			<label for="jobTitle" class="form-label">jobTitle</label> <input
+				type="text" class="form-control" id="jobTitle"
+				th:field="*{jobTitle}">
+		</div>
+
+
+
+		<button type="submit" class="btn btn-primary">Guardar</button>
+	</form>
+</body>
+</html>

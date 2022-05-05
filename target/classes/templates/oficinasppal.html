@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Plantilla/Plantilla :: head">
+
+</head>
+<body>
+<a class="btn btn-secondary" th:href="@{/crearoficina}">Crear Oficina</a>
+	<table class = "table table-striped">
+		<thead>
+		<tr>
+			<th>Codigo</th>
+			<th>Ciudad</th>
+			<th>telefono</th>
+			<th colspan="2">Acciones</th>
+		</tr>
+		</thead>
+		<tr th:each="o:${ListaOficinas}">
+			<td th:text="${o.officeCode}"></td>
+			<td th:text="${o.city}"></td>
+			<td th:text="${o.phone}"></td>
+			<td > <a class="btn btn-secondary btn-xs" th:href="@{/EditarOficina/}+${o.officeCode}">Editar</a></td>
+			<td > <a class="btn btn-danger btn-xs" th:href="@{/EliminarOficina/}+${o.officeCode}">Eliminar</a></td>
+		</tr>
+	</table>
+</body>
+</html>
