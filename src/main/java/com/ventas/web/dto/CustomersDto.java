@@ -1,7 +1,5 @@
 package com.ventas.web.dto;
 
-import javax.persistence.Column;
-
 public class CustomersDto {
 	private Integer customerNumber;
 	private String customerName;
